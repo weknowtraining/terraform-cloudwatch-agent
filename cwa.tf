@@ -10,8 +10,6 @@ resource "kubernetes_service_account" "this" {
   }
 
   automount_service_account_token = true
-
-  depends_on = [kubernetes_namespace.this]
 }
 
 resource "kubernetes_cluster_role" "this" {
@@ -94,8 +92,6 @@ resource "kubernetes_config_map" "this" {
       }
     })
   }
-
-  depends_on = [kubernetes_namespace.this]
 }
 
 resource "kubernetes_daemonset" "this" {
@@ -251,6 +247,4 @@ resource "kubernetes_daemonset" "this" {
       }
     }
   }
-
-  depends_on = [kubernetes_namespace.this]
 }
