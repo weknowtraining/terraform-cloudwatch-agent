@@ -3,12 +3,6 @@ resource "aws_iam_role_policy_attachment" "this" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 }
 
-resource "kubernetes_namespace" "this" {
-  metadata {
-    name = var.namespace
-  }
-}
-
 resource "kubernetes_service_account" "this" {
   metadata {
     name      = "cloudwatch-agent"

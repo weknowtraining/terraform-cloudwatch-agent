@@ -7,7 +7,6 @@ variable "worker_iam_role_name" {
 }
 
 variable "namespace" {
-  default     = "aws"
   description = "The k8s namespace to install the agent in"
 }
 
