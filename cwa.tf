@@ -116,8 +116,9 @@ resource "kubernetes_daemonset" "this" {
 
       spec {
         container {
-          name  = "cloudwatch-agent"
-          image = var.image
+          name              = "cloudwatch-agent"
+          image             = var.image
+          image_pull_policy = var.image_pull_policy
 
           resources {
             limits = {

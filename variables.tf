@@ -19,3 +19,13 @@ variable "image" {
     error_message = "You must use an amazon or weknowtraining cloudwatch-agent image and include the version."
   }
 }
+
+variable "image_pull_policy" {
+  default     = "IfNotPresent"
+  description = "The pull policy"
+
+  validation {
+    condition     = contains(["Always", "Never", "IfNotPresent"], var.image_pull_policy)
+    error_message = "Must be one of Always, Never, IfNotPresent."
+  }
+}
