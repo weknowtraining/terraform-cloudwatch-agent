@@ -133,6 +133,7 @@ resource "kubernetes_daemonset" "this" {
 
           env {
             name = "HOST_IP"
+
             value_from {
               field_ref {
                 field_path = "status.hostIP"
@@ -142,6 +143,7 @@ resource "kubernetes_daemonset" "this" {
 
           env {
             name = "HOST_NAME"
+
             value_from {
               field_ref {
                 field_path = "spec.nodeName"
@@ -151,6 +153,7 @@ resource "kubernetes_daemonset" "this" {
 
           env {
             name = "K8S_NAMESPACE"
+
             value_from {
               field_ref {
                 field_path = "metadata.namespace"
@@ -201,6 +204,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "cwagentconfig"
+
           config_map {
             name = "cwagentconfig"
           }
@@ -208,6 +212,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "rootfs"
+
           host_path {
             path = "/"
           }
@@ -215,6 +220,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "dockersock"
+
           host_path {
             path = "/var/run/docker.sock"
           }
@@ -222,6 +228,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "varlibdocker"
+
           host_path {
             path = "/var/lib/docker"
           }
@@ -229,6 +236,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "sys"
+
           host_path {
             path = "/sys"
           }
@@ -236,6 +244,7 @@ resource "kubernetes_daemonset" "this" {
 
         volume {
           name = "devdisk"
+
           host_path {
             path = "/dev/disk/"
           }
