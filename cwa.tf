@@ -120,12 +120,12 @@ resource "kubernetes_daemonset" "this" {
           image = var.image
 
           resources {
-            limits {
+            limits = {
               cpu    = "200m"
               memory = "200Mi"
             }
 
-            requests {
+            requests = {
               cpu    = "200m"
               memory = "200Mi"
             }

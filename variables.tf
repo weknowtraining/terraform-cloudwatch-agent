@@ -15,7 +15,7 @@ variable "image" {
   description = "The Docker image to run"
 
   validation {
-    condition     = can(regex("^amazon/cloudwatch-agent:", var.image))
-    error_message = "You must use an amazon/cloudwatch-agent image and include the version."
+    condition     = can(regex("^(amazon|weknowtraining)/cloudwatch-agent:", var.image))
+    error_message = "You must use an amazon or weknowtraining cloudwatch-agent image and include the version."
   }
 }
